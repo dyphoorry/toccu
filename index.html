@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Toccu Teatro</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #54b663;
+        }
+        
+        nav {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: #e0e0e0;
+            text-shadow: 0 0 5px white;
+        }
+
+        .main-content {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png');
+            min-height: 100vh;
+        }
+
+        section {
+            padding: 80px 20px;
+            background: rgba(255,255,255,0.9);
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2d5f3b;
+            margin-bottom: 40px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            position: relative;
+            margin-top: -80px;
+            filter: brightness(0.8);
+        }
+
+        .welcome-text {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 4em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            font-family: 'Times New Roman', serif;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+            z-index: 1;
+        }
+
+        .content-block {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .activity-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .activity-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* SCONTI美化样式 */
+        .discount-card {
+            background: linear-gradient(145deg, #ffffff, #f8fff9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(84,182,99,0.15);
+            border: 2px solid #e3f5e6;
+            margin: 30px 0;
+        }
+
+        .discount-card ol {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+
+        .discount-card li {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #54b663;
+        }
+
+        .prezzo-special {
+            font-size: 2em;
+            color: #2d5f3b;
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .prezzo-special::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #54b663;
+            margin: 15px auto;
+        }
+
+        /* ACCEDI美化样式 */
+        .login-form {
+            background: linear-gradient(135deg, #ffffff, #f8fff9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(84,182,99,0.15);
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            border: 2px solid #c8e6c9;
+            transition: all 0.3s;
+            padding: 15px;
+            margin: 15px 0;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .form-input:focus {
+            border-color: #54b663;
+            box-shadow: 0 0 8px rgba(84,182,99,0.2);
+            outline: none;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, #54b663, #3d8c4a);
+            border-radius: 50px;
+            padding: 18px 45px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(84,182,99,0.3);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(84,182,99,0.4);
+        }
+
+        .registrati-link {
+            color: #54b663 !important;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+
+        .registrati-link:hover {
+            color: #3d8c4a !important;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#chi-siamo">CHI SIAMO</a>
+        <a href="#info">INFO</a>
+        <a href="#attivita">ATTIVITA'</a>
+        <a href="#progetto">PROGETTO</a>
+        <a href="#sconto">SCONTI</a>
+        <a href="#accedi">ACCEDI</a>
+    </nav>
+
+    <main class="main-content">
+        <!-- 封面 -->
+        <section id="home">
+            <div style="position: relative;">
+                <img src="https://i.postimg.cc/wx047ZGp/2f385ca4-8f74-41d5-a22c-cf8d06fae006.jpg" 
+                     class="main-image" alt="Teatro Background">
+                <h1 class="welcome-text">ASSOCIAZIONE CULTURALE TOCCU</h1>
+                <img src="https://i.postimg.cc/MfZjhBsY/2.jpg" 
+                     class="header-logo"
+                     alt="Teatro Logo">
+            </div>
+        </section>
+
+        <!-- CHI SIAMO -->
+        <section id="chi-siamo">
+            <h2>CHI SIAMO</h2>
+            <div class="content-block">
+                <p>Siamo un’associazione culturale con sede a Lecce, in Puglia. Agiamo con la collaborazione e il patrocinio del Comune di Lecce, della Regione Puglia, del Ministero della Cultura e di Puglia Culture (ex Teatro Pubblico Pugliese), è il Consorzio Regionale per le Arti e la Cultura.<br><br>
+                La sede principale della nostra associazione sarà sempre aperta a chiunque voglia, vorremmo creare degli spazi per tutta la comunità, all’interno del quale i cittadini possano sentirsi accolti, e in cui si possano generare confronti e dialoghi. Banalmente si potrà anche semplicemente frequentare la nostra sede per studiare, per disegnare, leggere, fare due chiacchiere e stare in compagnia. In questo luogo così comunitario la proposta teatrale verrà introdotta, spiegata e motivata con uno specifico criterio, così che il nostro pubblico la richieda, la necessiti e la comprenda.</p>
+            </div>
+        </section>
+
+        <!-- INFO -->
+        <section id="info">
+            <h2>INFO</h2>
+            <div class="content-block">
+                <div class="activity-card">
+                    <p><strong>LUOGO:</strong><br>
+                    Via Giuseppe Palmieri 15<br>
+                    Teatro Apollo, Via Salvatore Trinchese, 13-14.<br>
+                    Teatro Paisiello, Via Giuseppe Palmieri, 83.</p>
+                    <p><strong>CONTATTO:</strong></p>
+                    <ul>
+                        <li>PER ALTRE INFO: <a href="mailto:toccuinfo@gmail.com">TOCCUINFO@GMAIL.COM</a></li>
+                        <li>PER IL BIGLIETTO: <a href="mailto:toccubiglietteria@gmail.com">TOCCUBIGLIETTERIA@GMAIL.COM</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATTIVITA' -->
+        <section id="attivita">
+            <h2>ATTIVITA'</h2>
+            <div class="content-block">
+                <div class="activity-list">
+                    <div class="activity-card">
+                        <h3>Laboratori Teatrali</h3>
+                        <p>Corsi di formazione teatrale per tutte le età， con focus sull'improvvisazione e tecnica scenica.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Servizi Doposcuola</h3>
+                        <p>Supporto didattico creativo integrato con attività artistiche per studenti.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Laboratori di Scrittura Creativa</h3>
+                        <p>Workshop per sviluppare narrazioni originali attraverso tecniche innovative.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGETTO -->
+        <section id="progetto">
+            <h2>PROGETTO PROFONDO SUD</h2>
+            <div class="content-block">
+                <div class="activity-card">
+                    <p>Il progetto ha come obiettivo quello di avvicinare lə giovanə al teatro e di educarlə al linguaggio teatrale contemporaneo che non si accontenta di una prosa vuota. Per noi e per tutti il teatro deve essere politico. Vogliamo che lə ragazzə riconoscano il teatro come un luogo vivo che parla a loro, di loro e del mondo che li circonda. Per far ciò abbiamo creato una rassegna di tre spettacoli accompagnata da alcune attività collaterali.</p>
+                    <ul style="margin: 20px 0;">
+                        <li>Aspettando Godot diretto da Theodoros Terzopoulos</li>
+                        <li>Spettacolo di produzione creato dai Kepler 452</li>
+                        <li>Eclissi di Balletto Civile</li>
+                    </ul>
+                    <p><strong>Attività collaterali del progetto:</strong></p>
+                    <ul style="margin-bottom: 20px;">
+                        <li>Incontri nelle scuole</li>
+                        <li>Aperitivo post debutto dei Kepler</li>
+                        <li>Orienteering culturale</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCONTI -->
+        <section id="sconto">
+            <h2>IL TUO SCONTO</h2>
+            <div class="content-block">
+                <div class="discount-card">
+                    <div class="prezzo-special">10€</div>
+                    <ol>
+                        <li>Abbonamento: sconto aggiuntivo dell'85% sul primo acquisto</li>
+                        <li>Invito nuovi membri: sconto 60% per entrambi</li>
+                        <li>Biglietti di gruppo (min. 5 persone): sconti progressivi</li>
+                    </ol>
+                    <hr>
+                    <div class="discount-system">
+                        <button class="form-button" onclick="generateDiscount()">ESTRAI SCONTO</button>
+                        <div id="discountResult" style="margin-top: 30px;"></div>
+                        <div id="payButton" style="display: none; margin-top: 30px;">
+                            <button class="form-button">PAGA CON SCONTO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCEDI -->
+        <section id="accedi">
+            <h2>ACCEDI</h2>
+            <div class="login-form">
+                <input type="email" class="form-input" placeholder="Email" required>
+                <input type="password" class="form-input" placeholder="Password" required>
+                <button type="submit" class="form-button" style="width: 100%;">Accedi</button>
+                <div style="text-align: center; margin-top: 25px;">
+                    <p>Non hai un account? <a href="#registrati" class="registrati-link">Registrati qui</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function generateDiscount() {
+            let discount;
+            const freeChance = Math.random() < 0.1;
+            
+            if(freeChance) {
+                discount = 'GRATIS';
+            } else {
+                let base = Math.floor(Math.random() * 8) * 10 + 20;
+                base = Math.min(base, 90);
+                discount = base - (base % 5) + '%';
+            }
+
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code = '';
+            for(let i = 0; i < 10; i++) {
+                code += chars[Math.floor(Math.random() * chars.length)];
+            }
+
+            const resultHTML = `
+                <h3 style="color: #2d5f3b;">ESTRAZIONE RIUSCITA!</h3>
+                <div style="font-size: 1.5em; margin: 20px 0;">
+                    Sconto ottenuto: 
+                    <span style="color: #54b663; font-weight: bold; font-size: 1.8em;">${discount}</span>
+                </div>
+                <div>
+                    Codice promozionale:<br>
+                    <span class="coupon-code">${code}</span>
+                </div>
+                <p style="margin-top: 15px; color: #666;">Valido per 72 ore</p>
+            `;
+
+            document.getElementById('discountResult').innerHTML = resultHTML;
+            document.getElementById('payButton').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
